@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/round_corner_background"
+    android:weightSum="4"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:src="@drawable/ic_launcher_background"
+        android:layout_weight="3"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"/>
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTourName"
+            tools:text="Thailand"
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvTourDesc"
+            android:layout_below="@id/tvTourName"
+            android:layout_width="wrap_content"
+            tools:text="This is desc for placeholder"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvTourCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTourDesc"
+            android:layout_margin="8dp"
+            tools:text="50000 kyats"/>
+
+
+
+    </RelativeLayout>
 
 </LinearLayout>
