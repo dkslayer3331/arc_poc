@@ -23,7 +23,7 @@ object TourModelImpl : TourModel, BaseModel() {
           tours.forEachIndexed { index, baseVO ->
               countryList[index] = baseVO
           }
-            onSucess.invoke(listOf(), listOf())
+            onSucess.invoke(countries,tours)
         },onFail = {
                 onFail.invoke(it)
         })

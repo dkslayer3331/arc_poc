@@ -45,9 +45,8 @@ object RetrofitImpl : TravelDataAgent {
 
             override fun onResponse(call: Call<ResponseVO>, response: Response<ResponseVO>) {
                     response.body()?.let {
-                        it.data?.let {
-                            onSuccess(it.country,it.popularTours)
-                        }
+                        if(it.isSuccessful()) onSuccess(it.data.country,it.data.popularTours)
+                        else onFail("request fail")
                     } ?: onFail("no data")
             }
 
