@@ -45,7 +45,14 @@
             android:layout_margin="8dp"
             tools:text="50000 kyats"/>
 
-
+         <include
+             android:id="@+id/vpScore"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_margin="8dp"
+             layout="@layout/rating_viewpod"
+             android:layout_centerInParent="true"
+             android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>
 

@@ -5,6 +5,7 @@ import android.util.Log
 import com.google.gson.Gson
 import com.mhst.architectureassignment.R
 import com.mhst.architectureassignment.adapters.CountryAdapter
+import com.mhst.architectureassignment.adapters.TourAdapter
 import com.mhst.architectureassignment.data.models.TourModel
 import com.mhst.architectureassignment.data.models.TourModelImpl
 import com.mhst.architectureassignment.data.vos.BaseVO
@@ -14,13 +15,15 @@ class MainActivity : BaseActivity() {
 
     lateinit var countryAdapter: CountryAdapter
 
+    lateinit var tourAdapter: TourAdapter
+
     val tourModel: TourModel = TourModelImpl
 
     private fun requestData() {
         swipeRefresh.isRefreshing = true
         tourModel.getAllList(onSucess = { countries, tours ->
             swipeRefresh.isRefreshing = false
-
+            tourAdapter.setNewData(tours.toMutableList())
 
         }, onFail = {
             swipeRefresh.isRefreshing = false
@@ -29,7 +32,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupRecyclers() {
-
+        rvTours.adapter = tourAdapter
     }
 
     private fun setupSwipeRefresh() {
@@ -50,6 +53,11 @@ class MainActivity : BaseActivity() {
             Log.d("countryPosition", it.toString())
         }
 
+        tourAdapter = TourAdapter {
+
+        }
+
+        setupRecyclers()
 
     }
 }
