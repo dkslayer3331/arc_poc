@@ -11,12 +11,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         tools:background="@color/colorAccent"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="220dp">
 
         <ImageView
             android:id="@+id/ivBgImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
@@ -58,9 +59,11 @@
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBgImage"
             app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/tvLocationName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLocationName"
+            app:layout_constraintVertical_bias="0.38" />
 
         <TextView
             android:id="@+id/tvRating"
@@ -92,6 +95,14 @@
         <TextView
             android:id="@+id/tvDesc"
             android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPhotos"
+            android:layout_margin="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

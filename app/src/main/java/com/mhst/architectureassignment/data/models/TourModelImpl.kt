@@ -18,10 +18,10 @@ object TourModelImpl : TourModel, BaseModel() {
     ) {
         mDataAgent.getTours(onSuccess = {countries, tours ->
           countries.forEachIndexed {index,it->
-              tourList[index] = it
+              countryList[index] = it
           }
           tours.forEachIndexed { index, baseVO ->
-              countryList[index] = baseVO
+              tourList[index] = baseVO
           }
             onSucess.invoke(countries,tours)
         },onFail = {

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import com.mhst.architectureassignment.R
 import com.mhst.architectureassignment.adapters.ReviewAdapter
 import com.mhst.architectureassignment.data.models.TourModel
@@ -33,6 +34,11 @@ class DetailActivity : BaseActivity() {
 
     }
 
+    private fun setUpRecycler(){
+        scoreAndReviewAdapter = ReviewAdapter()
+        rvScoreAndReview.adapter = scoreAndReviewAdapter
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +50,19 @@ class DetailActivity : BaseActivity() {
 
         data = if(type == 1) model.getCountry(id) else model.getTourDetail(id)
 
-        rvScoreAndReview.adapter = scoreAndReviewAdapter
+        setUpRecycler()
+
+        tvTourHeading.text = data.name
+
+        tvLocationName.text = data.location
+
+        tvDesc.text = data.description
+
+        Glide.with(this).load(data.photos[0]).into(ivBgImage)
+
+        ratingBar.rating = data?.avgRating
+
+        tvRating.text = data?.avgRating.toString()
 
         scoreAndReviewAdapter.setNewData(data.scoresAndReviews.toMutableList())
 
