@@ -13,9 +13,9 @@ class FavViewPod @JvmOverloads constructor(
         super.onFinishInflate()
     }
 
-    fun setValues(score : Float,drawable : Drawable){
+    fun setValues(score : Float){
         tvRating.text = score.toString()
-        vpFav.setBackgroundDrawable(drawable)
+        //vpFav.setBackgroundDrawable(drawable)
     }
 
 }

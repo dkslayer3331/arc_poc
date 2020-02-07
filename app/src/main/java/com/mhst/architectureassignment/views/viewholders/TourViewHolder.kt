@@ -18,7 +18,7 @@ class TourViewHolder(itemView: View,val delegate: (Int)->Unit) : BaseViewHolder<
         itemView.tvTourName.text = data?.name ?: ""
         itemView.tvTourDesc.text = data?.description ?: ""
 
-       // vpScore.setValues(data?.avgRating ?: 0f, ContextCompat.getDrawable(itemView.context,R.drawable.rounder_corner_bg_green)!!)
+        vpScore.setValues(data?.avgRating ?: 0f)
 
         itemView.setOnClickListener {
             delegate(adapterPosition)
