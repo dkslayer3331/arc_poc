@@ -1,5 +1,6 @@
 package com.mhst.architectureassignment.views.viewholders
 
+import android.graphics.Color
 import android.view.View
 import com.bumptech.glide.Glide
 import com.mhst.architectureassignment.data.vos.BaseVO
@@ -10,6 +11,8 @@ class CountryViewHolder(itemView: View,val delegate : (id : Int)->Unit) : BaseVi
     override fun binData(data: BaseVO?) {
 
         val vp = itemView.vpFavCountry as FavViewPod
+
+        vp.setBackgroundColor(Color.parseColor("#CCFF0000"))
 
         itemView.tvCountryName.text = data?.name ?: "Not avail"
 

@@ -1,6 +1,6 @@
 package com.mhst.architectureassignment
 
-const val BASE_URL = "https://65b76bfd-419e-4db4-af67-812fd8d13486.mock.pstmn.io"
+const val BASE_URL = "https://4f9ffe58-624c-438f-ad8c-5df219e018e7.mock.pstmn.io"
 
 const val NO_CONNECTION_MESSAGE = "No Internet Connection"
 
