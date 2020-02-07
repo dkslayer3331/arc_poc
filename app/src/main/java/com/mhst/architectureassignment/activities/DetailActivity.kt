@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.mhst.architectureassignment.R
+import com.mhst.architectureassignment.adapters.PhotoAdapter
 import com.mhst.architectureassignment.adapters.ReviewAdapter
 import com.mhst.architectureassignment.data.models.TourModel
 import com.mhst.architectureassignment.data.models.TourModelImpl
@@ -16,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_detail.*
 class DetailActivity : BaseActivity() {
 
     lateinit var scoreAndReviewAdapter: ReviewAdapter
+
+    lateinit var photoAdapter: PhotoAdapter
 
     val model : TourModel = TourModelImpl
 
@@ -36,7 +39,9 @@ class DetailActivity : BaseActivity() {
 
     private fun setUpRecycler(){
         scoreAndReviewAdapter = ReviewAdapter()
+        photoAdapter = PhotoAdapter()
         rvScoreAndReview.adapter = scoreAndReviewAdapter
+        rvPhotos.adapter = photoAdapter
     }
 
 
@@ -65,6 +70,8 @@ class DetailActivity : BaseActivity() {
         tvRating.text = data?.avgRating.toString()
 
         scoreAndReviewAdapter.setNewData(data.scoresAndReviews.toMutableList())
+
+        photoAdapter.setNewData(data.photos.toMutableList())
 
     }
 }
