@@ -24,6 +24,7 @@ class MainActivity : BaseActivity() {
         tourModel.getAllList(onSucess = { countries, tours ->
             swipeRefresh.isRefreshing = false
             tourAdapter.setNewData(tours.toMutableList())
+            countryAdapter.setNewData(countries.toMutableList())
 
         }, onFail = {
             swipeRefresh.isRefreshing = false
@@ -33,6 +34,7 @@ class MainActivity : BaseActivity() {
 
     private fun setupRecyclers() {
         rvTours.adapter = tourAdapter
+        rvCountry.adapter = countryAdapter
     }
 
     private fun setupSwipeRefresh() {

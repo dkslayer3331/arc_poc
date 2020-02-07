@@ -14,9 +14,11 @@
         android:weightSum="5">
 
         <ImageView
+            android:id="@+id/ivTourPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:scaleType="centerCrop"
             android:background="@drawable/ic_launcher_background"></ImageView>
 
         <LinearLayout

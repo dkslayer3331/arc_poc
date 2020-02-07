@@ -20,6 +20,8 @@ class TourViewHolder(itemView: View,val delegate: (Int)->Unit) : BaseViewHolder<
 
         vpScore.setValues(data?.avgRating ?: 0f)
 
+        Glide.with(itemView.context).load(data?.photos?.get(0) ?: "").into(itemView.ivTourPhoto)
+
         itemView.setOnClickListener {
             delegate(adapterPosition)
         }
