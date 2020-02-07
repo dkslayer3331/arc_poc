@@ -17,6 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <include
+                android:visibility="gone"
+                android:id="@+id/vpEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/viewpod_empty"/>
+
             <TextView
                 android:text="Find the best Tour"
                 android:layout_margin="8dp"

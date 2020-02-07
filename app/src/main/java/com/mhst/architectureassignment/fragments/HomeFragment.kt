@@ -15,6 +15,7 @@ import com.mhst.architectureassignment.adapters.CountryAdapter
 import com.mhst.architectureassignment.adapters.TourAdapter
 import com.mhst.architectureassignment.data.models.TourModel
 import com.mhst.architectureassignment.data.models.TourModelImpl
+import com.mhst.architectureassignment.views.viewpods.EmptyViewPod
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,6 +28,7 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var viewPodEmpty : EmptyViewPod
 
     lateinit var countryAdapter: CountryAdapter
 
@@ -38,12 +40,17 @@ class HomeFragment : Fragment() {
         swipeRefresh.isRefreshing = true
         tourModel.getAllList(onSucess = { countries, tours ->
             swipeRefresh.isRefreshing = false
-            tourAdapter.setNewData(tours.toMutableList())
-            countryAdapter.setNewData(countries.toMutableList())
+            if(tours.isNotEmpty() && countries.isNotEmpty()){
+                hideEmptyView()
+                tourAdapter.setNewData(tours.toMutableList())
+                countryAdapter.setNewData(countries.toMutableList())
+            }
+            else showEmptyView()
 
         }, onFail = {
             swipeRefresh.isRefreshing = false
             view?.let { it1 -> Snackbar.make(it1, it, Snackbar.LENGTH_LONG).show() }
+            showEmptyView()
         })
     }
 
@@ -56,6 +63,18 @@ class HomeFragment : Fragment() {
         swipeRefresh.setOnRefreshListener {
             requestData()
         }
+    }
+
+    private fun showEmptyView(){
+//        ivEmptyImage.visibility = View.VISIBLE
+//        tvEmptyText.visibility = View.VISIBLE
+        viewPodEmpty.visibility = View.VISIBLE
+        viewPodEmpty.setEmptyData("Something wrong","https://cdn2.iconfinder.com/data/icons/files-and-documents-12/120/books_2f4r-512.png")
+
+    }
+
+    private fun hideEmptyView(){
+        viewPodEmpty.visibility = View.GONE
     }
 
 
@@ -76,6 +95,8 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        viewPodEmpty = vpEmpty as EmptyViewPod
 
         setupSwipeRefresh()
 
