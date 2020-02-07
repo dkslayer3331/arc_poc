@@ -1,5 +1,6 @@
 package com.mhst.architectureassignment.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.gson.Gson
@@ -53,10 +54,13 @@ class MainActivity : BaseActivity() {
 
         countryAdapter = CountryAdapter {
             Log.d("countryPosition", it.toString())
+            val intent = DetailActivity.newInstance(this,it)
+            startActivity(intent)
         }
 
         tourAdapter = TourAdapter {
-
+            val intent = DetailActivity.newInstance(this,it)
+            startActivity(intent)
         }
 
         setupRecyclers()
