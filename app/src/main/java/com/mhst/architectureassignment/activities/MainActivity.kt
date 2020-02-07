@@ -54,12 +54,12 @@ class MainActivity : BaseActivity() {
 
         countryAdapter = CountryAdapter {
             Log.d("countryPosition", it.toString())
-            val intent = DetailActivity.newInstance(this,it)
+            val intent = DetailActivity.newInstance(this,it,1)
             startActivity(intent)
         }
 
         tourAdapter = TourAdapter {
-            val intent = DetailActivity.newInstance(this,it)
+            val intent = DetailActivity.newInstance(this,it,2)
             startActivity(intent)
         }
 

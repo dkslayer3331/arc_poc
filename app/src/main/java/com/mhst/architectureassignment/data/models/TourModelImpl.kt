@@ -8,9 +8,9 @@ object TourModelImpl : TourModel, BaseModel() {
 
     override fun getTourDetail(id: Int): BaseVO = tourList[id] ?: BaseVO()
 
-    private val tourList : HashMap<Int,BaseVO> = hashMapOf()
+     val tourList : HashMap<Int,BaseVO> = hashMapOf()
 
-    private val countryList : HashMap<Int,BaseVO> = hashMapOf()
+     val countryList : HashMap<Int,BaseVO> = hashMapOf()
 
     override fun getAllList(
         onSucess: (List<BaseVO>, List<BaseVO>) -> Unit,
