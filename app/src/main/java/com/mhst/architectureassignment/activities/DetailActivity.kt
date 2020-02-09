@@ -73,5 +73,9 @@ class DetailActivity : BaseActivity() {
 
         photoAdapter.setNewData(data.photos.toMutableList())
 
+        idBack.setOnClickListener {
+            finish()
+        }
+
     }
 }

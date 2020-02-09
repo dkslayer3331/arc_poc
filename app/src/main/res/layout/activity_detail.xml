@@ -78,6 +78,16 @@
             app:layout_constraintStart_toEndOf="@+id/ratingBar"
             app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
+        <ImageView
+            android:id="@+id/idBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvTourHeading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivBgImage"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
